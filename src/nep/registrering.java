@@ -46,7 +46,7 @@ public class registrering extends JPanel
 
     }
 
-    public static  checkarBokstaver()
+    //public static  checkarBokstaver()
 
     static boolean checkar()
     {
@@ -71,7 +71,8 @@ public class registrering extends JPanel
                 }
                 else
                 {
-                    for (int i = 0; i < )
+                    //for (int i = 0; i < )
+                    return true; //tillälligt
                 }
             }
         }
