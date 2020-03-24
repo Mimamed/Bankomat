@@ -32,6 +32,7 @@ public class mena extends JPanel
 
         laggTill.addActionListener(new knap1());
         draUt.addActionListener(new knap2());
+        loggaUt.addActionListener(new knap3());
 
         loggaUt.setBounds(0,0,90,25);
         konto.setBounds(70, 20, 300, 80);
@@ -41,15 +42,15 @@ public class mena extends JPanel
         pengarSkriv.setBounds(pengar.getBounds().x, pengar.getBounds().y + 90, pengar.getBounds().width, pengar.getBounds().height);
         laggTill.setBounds(pengar.getBounds().x + 170, pengar.getBounds().y + 90, pengar.getBounds().width, pengar.getBounds().height);
         draUt.setBounds(pengar.getBounds().x + 170, pengar.getBounds().y + 50, pengar.getBounds().width, pengar.getBounds().height);
-        felmedelande.setBounds(pengar.getBounds().x, pengar.getBounds().y + 110, pengar.getBounds().width + 300, pengar.getBounds().height);
+        felmedelande.setBounds(pengar.getBounds().x, pengar.getBounds().y + 130, pengar.getBounds().width + 300, pengar.getBounds().height);
 
         felmedelande.setFont(new Font(Font.DIALOG, Font.BOLD, 18));
         pengar.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-
         loggaUt.setFocusPainted(false);
         konto.setFont(new Font(Font.DIALOG, Font.BOLD, 30));
         konto.setForeground(Color.orange);
         felmedelande.setForeground(Color.red);
+        pengarSkriv.setBackground(Color.lightGray);
 
 
     }
@@ -127,4 +128,17 @@ public class mena extends JPanel
         }
     }
 
+    static class knap3 implements ActionListener
+    {
+
+        public void actionPerformed(ActionEvent actionEvent)
+        {
+            kontot.pengar = Float.parseFloat(money.getText());
+
+            money.setText("");
+            kontot = null;
+            pengarSkriv.setText("");
+            dsf.byta(dsf.startMenu);
+        }
+    }
 }

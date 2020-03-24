@@ -16,6 +16,7 @@ public class tet extends JPanel
 
 
         this.setLayout(null);
+        this.setBackground(Color.gray);
 
         this.add(namnLabel);
         this.add(losenLabel);
@@ -25,23 +26,25 @@ public class tet extends JPanel
         this.add(felmedelande);
         this.add(registrera);
 
-        namnArea.addKeyListener(new dsf.EnterLyssnaren());
-        losenArea.addKeyListener(new dsf.EnterLyssnaren());
 
         titel.setFont(new Font(Font.DIALOG, Font.BOLD, 40));
+        titel.setForeground(Color.orange);
         felmedelande.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
         felmedelande.setForeground(Color.red);
+        registrera.setFocusPainted(false);
 
 
-        felmedelande.setBounds(150, 230, 400, 30);
         titel.setBounds(135, 10, 400, 80);
         namnArea.setBounds(170, 120, 150, 30);
         losenArea.setBounds(namnArea.getX(), namnArea.getY() + 70, namnArea.getWidth(), namnArea.getHeight());
         namnLabel.setBounds(namnArea.getX(), namnArea.getY() - 30, 150, 25);
         losenLabel.setBounds(losenArea.getX(), losenArea.getY() - 30, losenArea.getWidth(), 30);
         registrera.setBounds(namnArea.getX(), namnArea.getY() + 100, namnArea.getWidth(), namnArea.getHeight());
+        felmedelande.setBounds(namnArea.getX() - 50, namnArea.getY() + 130, 400, 30);
 
         registrera.addActionListener(new registreraKnapp());
+        namnArea.addKeyListener(new dsf.EnterLyssnaren());
+        losenArea.addKeyListener(new dsf.EnterLyssnaren());
     }
 
     public static void checka()
@@ -74,9 +77,10 @@ public class tet extends JPanel
 
     static class registreraKnapp implements ActionListener
     {
-
         public void actionPerformed(ActionEvent actionEvent)
         {
+            namnArea.setText("");
+            losenArea.setText("");
             dsf.byta(dsf.signup);
         }
     }
