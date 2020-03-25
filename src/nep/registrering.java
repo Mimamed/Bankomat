@@ -109,9 +109,9 @@ public class registrering extends JPanel
                     }
                     else
                     {
-                        for (int i = 0; i < dsf.konton.size(); i++)
+                        for (int i = 0; i < Huvudklas.konton.size(); i++)
                         {
-                            if (skrivNamn.getText().equals(dsf.konton.get(i).användarnamn))
+                            if (skrivNamn.getText().equals(Huvudklas.konton.get(i).användarnamn))
                             {
                                 felmedelande.setForeground(Color.red);
                                 felmedelande.setText("<html>Användarnamnet redan taget, <br/>välj annat</html>");
@@ -135,7 +135,7 @@ public class registrering extends JPanel
             {
                 felmedelande.setForeground(Color.green);
                 felmedelande.setText("<html>Grattis! Kontot är skapad. <br/>Gå tillbaka för att logga in</html>");
-                dsf.konton.add(new Konto(skrivNamn.getText(), skrivLosen.getText(), 0));
+                Huvudklas.konton.add(new Konto(skrivNamn.getText(), skrivLosen.getText(), 0));
                 skrivNamn.setText("");
                 skrivLosen.setText("");
                 skrivLosen2.setText("");
@@ -150,7 +150,7 @@ public class registrering extends JPanel
         public void actionPerformed(ActionEvent actionEvent)
         {
             System.out.println("llllllllllllllllllll");
-            dsf.byta(dsf.startMenu);
+            Huvudklas.byta(Huvudklas.startMenu);
             skrivNamn.setText("");
             skrivLosen.setText("");
             skrivLosen2.setText("");

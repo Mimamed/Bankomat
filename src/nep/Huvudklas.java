@@ -9,11 +9,11 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class dsf
+public class Huvudklas
 {
-    static JFrame fon = new JFrame("Swedbank SE");
-    public static mena huvudMenu = new mena();
-    public static tet startMenu = new tet();
+    static JFrame fonster = new JFrame("Swedbank SE");
+    public static HuvudMenu huvudMenu = new HuvudMenu();
+    public static StartMenu startMenu = new StartMenu();
     static List<Konto> konton = new ArrayList<Konto>();
     static JPanel aktivPanel = startMenu;
     static registrering signup = new registrering();
@@ -26,22 +26,22 @@ public class dsf
 
 
         //fönster
-        fon.setVisible(true);
-        fon.setSize(500,400);
-        fon.setLocationRelativeTo(null);
-        fon.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fon.addKeyListener(new EnterLyssnaren());
-        fon.add(aktivPanel);
+        fonster.setVisible(true);
+        fonster.setSize(500,400);
+        fonster.setLocationRelativeTo(null);
+        fonster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fonster.addKeyListener(new EnterLyssnaren());
+        fonster.add(aktivPanel);
     }
 
     public static void byta(JPanel panel)
     {
-        fon.remove(aktivPanel);
-        fon.add(panel);
+        fonster.remove(aktivPanel);
+        fonster.add(panel);
         aktivPanel = panel;
-        fon.invalidate();
-        fon.validate();
-        fon.repaint();
+        fonster.invalidate();
+        fonster.validate();
+        fonster.repaint();
     }
 
     static class EnterLyssnaren implements KeyListener
@@ -59,7 +59,7 @@ public class dsf
         {
             if (keyEvent.getKeyCode() == KeyCode.ENTER.getCode() && aktivPanel == startMenu)
             {
-                tet.checka();
+                StartMenu.checka();
             }
         }
     }

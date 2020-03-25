@@ -5,13 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class tet extends JPanel
+public class StartMenu extends JPanel
 {
     static JLabel namnLabel = new JLabel("Användarnamn"), losenLabel = new JLabel("Lösenord"), titel = new JLabel("Välkommen"), felmedelande = new JLabel();
     static JTextField namnArea = new JTextField(), losenArea = new JTextField();
     static JButton registrera = new JButton("Skapa Konto");
 
-    tet()
+    StartMenu()
     {
 
 
@@ -43,8 +43,8 @@ public class tet extends JPanel
         felmedelande.setBounds(namnArea.getX() - 50, namnArea.getY() + 130, 400, 30);
 
         registrera.addActionListener(new registreraKnapp());
-        namnArea.addKeyListener(new dsf.EnterLyssnaren());
-        losenArea.addKeyListener(new dsf.EnterLyssnaren());
+        namnArea.addKeyListener(new Huvudklas.EnterLyssnaren());
+        losenArea.addKeyListener(new Huvudklas.EnterLyssnaren());
     }
 
     public static void checka()
@@ -56,16 +56,16 @@ public class tet extends JPanel
         }
         else
         {
-            for (int i = 0; i < dsf.konton.size(); i++)
+            for (int i = 0; i < Huvudklas.konton.size(); i++)
             {
-                if(dsf.konton.get(i).användarnamn.equals(namnArea.getText()) && dsf.konton.get(i).losenord.equals(losenArea.getText()))
+                if(Huvudklas.konton.get(i).användarnamn.equals(namnArea.getText()) && Huvudklas.konton.get(i).losenord.equals(losenArea.getText()))
                 {
                     felLösenord = false;
                     felmedelande.setText("");
                     //gå vidare till kontot!!
                     System.out.println("Inloggad");
-                    dsf.huvudMenu.nyttKonto(namnArea.getText());
-                    dsf.byta(dsf.huvudMenu);
+                    Huvudklas.huvudMenu.nyttKonto(namnArea.getText());
+                    Huvudklas.byta(Huvudklas.huvudMenu);
                 }
             }
             if (felLösenord == true)
@@ -73,9 +73,9 @@ public class tet extends JPanel
                 felmedelande.setText("Fel lösenord/användarnamn, försök igen");
             }
         }
-        for (int i = 0; i < dsf.konton.size(); i++)
+        for (int i = 0; i < Huvudklas.konton.size(); i++)
         {
-            System.out.println(dsf.konton.get(i).användarnamn + " : " + dsf.konton.get(i).losenord);
+            System.out.println(Huvudklas.konton.get(i).användarnamn + " : " + Huvudklas.konton.get(i).losenord);
         }
     }
 
@@ -85,7 +85,7 @@ public class tet extends JPanel
         {
             namnArea.setText("");
             losenArea.setText("");
-            dsf.byta(dsf.signup);
+            Huvudklas.byta(Huvudklas.signup);
         }
     }
 

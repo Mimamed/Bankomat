@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class mena extends JPanel
+public class HuvudMenu extends JPanel
 {
     static JButton loggaUt = new JButton("Logga ut"), laggTill = new JButton("Lägg till pengar"), draUt = new JButton("Dra ut pengar");
     static JLabel pengar = new JLabel("Pengar"), summa = new JLabel("Summa"), konto = new JLabel("Konto"), money = new JLabel(), felmedelande = new JLabel();
@@ -13,7 +13,7 @@ public class mena extends JPanel
     static Konto kontot;
     static float cash;
 
-    mena()
+    HuvudMenu()
     {
 
         this.setLayout(null);
@@ -62,11 +62,11 @@ public class mena extends JPanel
 
     public static void nyttKonto(String namn)
     {
-        for (int i = 0; i < dsf.konton.size(); i++)
+        for (int i = 0; i < Huvudklas.konton.size(); i++)
         {
-            if(dsf.konton.get(i).användarnamn.equals(namn))
+            if(Huvudklas.konton.get(i).användarnamn.equals(namn))
             {
-                kontot = dsf.konton.get(i);
+                kontot = Huvudklas.konton.get(i);
                 break;
             }
         }
@@ -138,7 +138,7 @@ public class mena extends JPanel
             money.setText("");
             kontot = null;
             pengarSkriv.setText("");
-            dsf.byta(dsf.startMenu);
+            Huvudklas.byta(Huvudklas.startMenu);
         }
     }
 }
