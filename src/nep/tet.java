@@ -61,7 +61,7 @@ public class tet extends JPanel
                 if(dsf.konton.get(i).användarnamn.equals(namnArea.getText()) && dsf.konton.get(i).losenord.equals(losenArea.getText()))
                 {
                     felLösenord = false;
-                    felmedelande.setText(null);
+                    felmedelande.setText("");
                     //gå vidare till kontot!!
                     System.out.println("Inloggad");
                     dsf.huvudMenu.nyttKonto(namnArea.getText());
@@ -72,6 +72,10 @@ public class tet extends JPanel
             {
                 felmedelande.setText("Fel lösenord/användarnamn, försök igen");
             }
+        }
+        for (int i = 0; i < dsf.konton.size(); i++)
+        {
+            System.out.println(dsf.konton.get(i).användarnamn + " : " + dsf.konton.get(i).losenord);
         }
     }
 
